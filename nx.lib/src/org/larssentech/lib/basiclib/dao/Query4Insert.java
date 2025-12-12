@@ -7,6 +7,8 @@
 
 package org.larssentech.lib.basiclib.dao;
 
+import org.larssentech.lib.basiclib.toolkit.StringManipulationToolkit;
+
 public class Query4Insert extends Query4Db {
 
 	String[] values;
@@ -29,7 +31,7 @@ public class Query4Insert extends Query4Db {
 		for (int i = 0; i < this.fieldNames.length; i++) {
 
 			c += this.fieldNames[i] + (i < this.fieldNames.length - 1 ? ", " : "");
-			d += "'" + this.values[i].replaceAll("'", "") + "'" + (i < this.fieldNames.length - 1 ? ", " : "");
+			d += "'" + StringManipulationToolkit.replaceAll(this.values[i], "'", "") + "'" + (i < this.fieldNames.length - 1 ? ", " : "");
 
 		}
 

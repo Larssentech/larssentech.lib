@@ -7,6 +7,8 @@
 
 package org.larssentech.lib.basiclib.dao;
 
+import org.larssentech.lib.basiclib.toolkit.StringManipulationToolkit;
+
 public class Query4Update {
 
 	private String tableName;
@@ -32,7 +34,7 @@ public class Query4Update {
 		String c = " set ";
 
 		for (int i = 0; i < this.fieldNames.length; i++) {
-			c += this.fieldNames[i] + " = " + "'" + this.values[i].replaceAll("'", "") + "'" + (i < this.fieldNames.length - 1 ? ", " : "");
+			c += this.fieldNames[i] + " = " + "'" + StringManipulationToolkit.replaceAll(this.values[i], "'", "") + "'" + (i < this.fieldNames.length - 1 ? ", " : "");
 
 		}
 

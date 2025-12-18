@@ -59,6 +59,7 @@ public class SocketBundle {
 
 		if (null == this.s) {
 			this.s = new Socket(this.host, this.port);
+			this.s.setSoTimeout(5000);
 			openStreams();
 		}
 	}

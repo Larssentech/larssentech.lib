@@ -20,18 +20,19 @@ package org.larssentech.lib.basiclib2.net.mail;
 
 import java.util.Vector;
 
-import org.larssentech.lib.basiclib.console.Out;
+import org.larssentech.lib.log.Logg3r;
 
 public class EmailValidator {
+
 	public static Vector<String> validateEmail(String[] e) {
 
 		int i, j, k = 0;
 		Vector<String> bad = new Vector<String>();
-		Out.p("   " + "> Executing");
+		Logg3r.log("   " + "> Executing");
 
 		for (int c = 0; c < e.length; c++) {
 
-			Out.p(".");
+			Logg3r.log(".");
 			if ((i = e[c].indexOf("@")) == -1 || (j = e[c].indexOf(".")) == -1 || (k = e[c].length()) == -1) bad.add(e[c]);
 			else if (e[c].substring(0, i).length() == 0 || e[c].substring(i + 1, j).length() == 0 || e[c].substring(j + 1, k).length() == 0) bad.add(e[c]);
 		}

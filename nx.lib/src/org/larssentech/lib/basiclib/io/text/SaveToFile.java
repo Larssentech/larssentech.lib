@@ -32,15 +32,24 @@ public class SaveToFile {
 		return saveToFile(fileName, new String[] { dataLine }, append);
 	}
 
+	public static boolean saveToFile(File fileName, String dataLine, boolean append) {
+
+		return saveToFile(fileName, new String[] { dataLine }, append);
+	}
+
+	private static boolean saveToFile(File file, String[] strings, boolean append) {
+
+		return saveToFile(file.getAbsoluteFile().toString(), strings, append);
+	}
+
 	public static boolean saveToFile(String fileName, String[] dataLine, boolean append) {
 
 		try {
 
 			PrintWriter toFile = new PrintWriter(new FileWriter(fileName, append));
 
-			for (int i = 0; i < dataLine.length; i++) {
-				toFile.println(dataLine[i]);
-			}
+			for (int i = 0; i < dataLine.length; i++) toFile.println(dataLine[i]);
+
 			toFile.close();
 
 			return true;

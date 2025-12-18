@@ -21,6 +21,8 @@ package org.larssentech.lib.CTK.objects;
 
 public class PUK extends PK {
 
+	private String email;
+
 	public PUK(String base64StringValue) {
 
 		super(base64StringValue);
@@ -29,6 +31,14 @@ public class PUK extends PK {
 	public PUK() {
 
 		super();
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

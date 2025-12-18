@@ -20,7 +20,7 @@ package org.larssentech.lib.basiclib2.net.mail;
 
 import java.util.Vector;
 
-import org.larssentech.lib.basiclib.console.Out;
+import org.larssentech.lib.log.Logg3r;
 
 public class EmailValidatorUI {
 
@@ -31,20 +31,20 @@ public class EmailValidatorUI {
 
 	public static void main(String[] args) {
 
-		Out.pl("");
-		Out.pl(LN);
-		Out.pl(SP + "Larssentech EmailValidator v" + V);
-		Out.pl(SP + "Copyright (c) Larssentech SII Solutions " + Y);
-		Out.pl(LN);
+		Logg3r.log("");
+		Logg3r.log(LN);
+		Logg3r.log(SP + "Larssentech EmailValidator v" + V);
+		Logg3r.log(SP + "Copyright (c) Larssentech SII Solutions " + Y);
+		Logg3r.log(LN);
 
 		if (args.length == 0) {
 
-			Out.pl(SP + "Need some addresses to test. One at least");
-			Out.pl(SP + "If more than one, they MUST be space separated.");
-			Out.pl(SP + "Otherwise, unexpected results may occur");
-			Out.pl(SP + "Usage: java EmailValidator address1 address2 ...");
-			Out.pl(LN);
-			Out.pl("");
+			Logg3r.log(SP + "Need some addresses to test. One at least");
+			Logg3r.log(SP + "If more than one, they MUST be space separated.");
+			Logg3r.log(SP + "Otherwise, unexpected results may occur");
+			Logg3r.log(SP + "Usage: java EmailValidator address1 address2 ...");
+			Logg3r.log(LN);
+			Logg3r.log("");
 			System.exit(-1);
 		}
 
@@ -52,22 +52,21 @@ public class EmailValidatorUI {
 		try {
 
 			Vector<String> bad = EmailValidator.validateEmail(args);
-			Out.pl("");
-			Out.pl(LN);
-			if (bad.size() == 0) Out.pl(SP + "Done. All emails OK");
+			Logg3r.log("");
+			Logg3r.log(LN);
+			if (bad.size() == 0) Logg3r.log(SP + "Done. All emails OK");
 			else if (bad.size() > 0) {
 
-				Out.pl(SP + "Problem with one or more email addresses.");
-				Out.pl(SP + "Error(s):");
-				Out.pl("");
+				Logg3r.log(SP + "Problem with one or more email addresses.");
+				Logg3r.log(SP + "Error(s):");
+				Logg3r.log("");
 
-				for (int i = 0; i < bad.size(); i++) Out.pl(SP + "- " + bad.get(i).toString());
+				for (int i = 0; i < bad.size(); i++) Logg3r.log(SP + "- " + bad.get(i).toString());
 			}
-			Out.pl(LN);
-			Out.pl("");
+			Logg3r.log(LN);
+			Logg3r.log("");
 
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 
 			e.printStackTrace();
 		}

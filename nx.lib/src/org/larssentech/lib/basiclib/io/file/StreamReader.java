@@ -37,7 +37,7 @@ public class StreamReader {
 	FileInputStream in;
 
 	public FileInputStream getIn() {
-		return in;
+		return this.in;
 	}
 
 	public StreamReader(File file) {

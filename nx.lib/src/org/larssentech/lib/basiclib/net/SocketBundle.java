@@ -39,6 +39,9 @@ public class SocketBundle {
 	private InputStream streamIn;
 	private PrintWriter out;
 	private OutputStream streamOut;
+
+	public void setStreamOut(OutputStream streamOut) { this.streamOut = streamOut; }
+
 	private String host;
 	private int port;
 
@@ -59,7 +62,7 @@ public class SocketBundle {
 
 		if (null == this.s) {
 			this.s = new Socket(this.host, this.port);
-			this.s.setSoTimeout(5000);
+			this.s.setSoTimeout(50000);
 			openStreams();
 		}
 	}
@@ -72,17 +75,11 @@ public class SocketBundle {
 		this.out = (new PrintWriter(new OutputStreamWriter(this.streamOut)));
 	}
 
-	private Socket getS() {
-		return this.s;
-	}
+	private Socket getS() { return this.s; }
 
-	private BufferedReader getIn() {
-		return this.in;
-	}
+	private BufferedReader getIn() { return this.in; }
 
-	private PrintWriter getOut() {
-		return this.out;
-	}
+	public PrintWriter getOut() { return this.out; }
 
 	public void close() throws IOException {
 
@@ -91,18 +88,14 @@ public class SocketBundle {
 		this.getS().close();
 	}
 
-	private InputStream getStreamIn() throws IOException {
-		return this.s.getInputStream();
-	}
+	private InputStream getStreamIn() throws IOException { return this.s.getInputStream(); }
 
 	public void printOut(String string) {
 		this.getOut().println(string);
 		this.getOut().flush();
 	}
 
-	private OutputStream getStreamOut() {
-		return this.streamOut;
-	}
+	public OutputStream getStreamOut() { return this.streamOut; }
 
 	public void printOut(int i) {
 		this.printOut(String.valueOf(i));
@@ -114,9 +107,7 @@ public class SocketBundle {
 
 	}
 
-	public String readLineIn() throws IOException {
-		return this.getIn().readLine();
-	}
+	public String readLineIn() throws IOException { return this.getIn().readLine(); }
 
 	public void write(byte[] bytesRead, int i, int readCount) throws IOException {
 		this.getStreamOut().write(bytesRead, 0, readCount);
@@ -124,7 +115,5 @@ public class SocketBundle {
 
 	}
 
-	public int read(byte[] bytesRead) throws IOException {
-		return this.getStreamIn().read(bytesRead);
-	}
+	public int read(byte[] bytesRead) throws IOException { return this.getStreamIn().read(bytesRead); }
 }

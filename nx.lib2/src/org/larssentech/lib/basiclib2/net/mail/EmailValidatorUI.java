@@ -18,6 +18,7 @@
 
 package org.larssentech.lib.basiclib2.net.mail;
 
+import java.io.File;
 import java.util.Vector;
 
 import org.larssentech.lib.log.Logg3r;
@@ -31,20 +32,20 @@ public class EmailValidatorUI {
 
 	public static void main(String[] args) {
 
-		Logg3r.log("");
-		Logg3r.log(LN);
-		Logg3r.log(SP + "Larssentech EmailValidator v" + V);
-		Logg3r.log(SP + "Copyright (c) Larssentech SII Solutions " + Y);
-		Logg3r.log(LN);
+		Logg3r.log2(new File("email_validator_ui.log"), "");
+		Logg3r.log2(new File("email_validator_ui.log"), LN);
+		Logg3r.log2(new File("email_validator_ui.log"), SP + "Larssentech EmailValidator v" + V);
+		Logg3r.log2(new File("email_validator_ui.log"), SP + "Copyright (c) Larssentech SII Solutions " + Y);
+		Logg3r.log2(new File("email_validator_ui.log"), LN);
 
 		if (args.length == 0) {
 
-			Logg3r.log(SP + "Need some addresses to test. One at least");
-			Logg3r.log(SP + "If more than one, they MUST be space separated.");
-			Logg3r.log(SP + "Otherwise, unexpected results may occur");
-			Logg3r.log(SP + "Usage: java EmailValidator address1 address2 ...");
-			Logg3r.log(LN);
-			Logg3r.log("");
+			Logg3r.log2(new File("email_validator_ui.log"), SP + "Need some addresses to test. One at least");
+			Logg3r.log2(new File("email_validator_ui.log"), SP + "If more than one, they MUST be space separated.");
+			Logg3r.log2(new File("email_validator_ui.log"), SP + "Otherwise, unexpected results may occur");
+			Logg3r.log2(new File("email_validator_ui.log"), SP + "Usage: java EmailValidator address1 address2 ...");
+			Logg3r.log2(new File("email_validator_ui.log"), LN);
+			Logg3r.log2(new File("email_validator_ui.log"), "");
 			System.exit(-1);
 		}
 
@@ -52,19 +53,19 @@ public class EmailValidatorUI {
 		try {
 
 			Vector<String> bad = EmailValidator.validateEmail(args);
-			Logg3r.log("");
-			Logg3r.log(LN);
-			if (bad.size() == 0) Logg3r.log(SP + "Done. All emails OK");
+			Logg3r.log2(new File("email_validator_ui.log"), "");
+			Logg3r.log2(new File("email_validator_ui.log"), LN);
+			if (bad.size() == 0) Logg3r.log2(new File("email_validator_ui.log"), SP + "Done. All emails OK");
 			else if (bad.size() > 0) {
 
-				Logg3r.log(SP + "Problem with one or more email addresses.");
-				Logg3r.log(SP + "Error(s):");
-				Logg3r.log("");
+				Logg3r.log2(new File("email_validator_ui.log"), SP + "Problem with one or more email addresses.");
+				Logg3r.log2(new File("email_validator_ui.log"), SP + "Error(s):");
+				Logg3r.log2(new File("email_validator_ui.log"), "");
 
-				for (int i = 0; i < bad.size(); i++) Logg3r.log(SP + "- " + bad.get(i).toString());
+				for (int i = 0; i < bad.size(); i++) Logg3r.log2(new File("email_validator_ui.log"), SP + "- " + bad.get(i).toString());
 			}
-			Logg3r.log(LN);
-			Logg3r.log("");
+			Logg3r.log2(new File("email_validator_ui.log"), LN);
+			Logg3r.log2(new File("email_validator_ui.log"), "");
 
 		} catch (Exception e) {
 

@@ -88,7 +88,7 @@ public class SocketBundle {
 		this.getS().close();
 	}
 
-	private InputStream getStreamIn() throws IOException { return this.s.getInputStream(); }
+	public InputStream getStreamIn() throws IOException { return this.s.getInputStream(); }
 
 	public void printOut(String string) {
 		this.getOut().println(string);
